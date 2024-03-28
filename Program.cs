@@ -17,6 +17,7 @@ do
     // display choices to user
     Console.WriteLine("1) Add Movie");
     Console.WriteLine("2) Display All Movies");
+    Console.WriteLine("3) Find Movie");
     Console.WriteLine("Enter to quit");
     // input selection
     choice = Console.ReadLine();
@@ -82,6 +83,30 @@ do
         {
             Console.WriteLine(m.Display());
         }
+    }
+    else if (choice == "3")
+    {
+        Console.WriteLine("What Movie Are You Looking For?");
+        string movieSearch = Console.ReadLine();
+        var Movies = movieFile.Movies.Where(m => m.title.Contains(movieSearch));
+
+        if (Movies.Any())
+        {
+            Console.WriteLine("Searching...");
+            Console.WriteLine("---------------------------------");
+
+            foreach (Movie m in Movies)
+            {
+                Console.WriteLine(m.Display());
+            }
+        }
+        else
+        {
+            Console.WriteLine("Searching...");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("No Movies Found");
+        }
+
     }
 
 } while (choice == "1" || choice == "2");
