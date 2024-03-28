@@ -97,6 +97,7 @@ do
 
             foreach (Movie m in Movies)
             {
+                Console.WriteLine($"There is {Movies.Count()} Movie With That Title");
                 Console.WriteLine(m.Display());
             }
         }
